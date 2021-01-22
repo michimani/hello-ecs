@@ -68,11 +68,11 @@ func main() {
 
 	webhookUrl, err := getWebhookURL()
 	if err != nil {
-		fmt.Println("Failed to get Slack Webhook URL.")
+		fmt.Println("Failed to get Slack Webhook URL.", err.Error())
 		return
 	}
 
 	if err := postToSlack(*m, webhookUrl); err != nil {
-		fmt.Println("Failed to post message to Slack.")
+		fmt.Println("Failed to post message to Slack.", err.Error())
 	}
 }
