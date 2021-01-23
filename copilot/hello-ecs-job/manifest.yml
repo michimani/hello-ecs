@@ -21,7 +21,7 @@ memory: 512
 on:
   # The scheduled trigger for your job. You can specify a Unix cron schedule or keyword (@weekly) or a rate (@every 1h30m)
   # AWS Schedule Expressions are also accepted: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
-  schedule: "*/5 * * * *"
+  schedule: "0 15 31 12 *"
 
 # Optional. The number of times to retry the job before failing.
 #retries: 3

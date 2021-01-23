@@ -44,14 +44,20 @@ A sample that uses AWS Copilot to deploy a scheduled task to Amazon ECS. The sam
     --type String \
     --tags Key=copilot-environment,Value=test Key=copilot-application,Value=hello-ecs
     ```
+4. Update manifest.yaml
 
-4. Deploy
+    ```diff
+    - schedule: "0 15 31 12 *"
+    + schedule: "*/5 * * * *"  # your own schedule
+    ```
+
+5. Deploy
 
     ```bash
     $ copilot job deploy --name hello-ecs-job --env test
     ```
 
-5. Receive message from app
+6. Receive message from app
 
-    After a certain amount of time, the scheduled task will be executed and Slack will receive a message.
+    After a certain amount of time, the scheduled task will be executed and Slack will receive a message.  
     ![sc__2021-01-23_131233](https://user-images.githubusercontent.com/9986092/105568718-eee24200-5d7e-11eb-9c19-1f7a6e8da2c1.png)
