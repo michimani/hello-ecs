@@ -14,9 +14,8 @@ A sample that uses AWS Copilot to deploy a scheduled task to Amazon ECS. The sam
     $ brew install aws/tap/copilot-cli
     ```
     
-    In other OS case, please read AWS Copilot document.
-    
-    - [(Optional) Verify the installation - AWS Copilot CLI](https://aws.github.io/copilot-cli/docs/getting-started/verify/)
+    In other OS case, please read AWS Copilot document.  
+    [(Optional) Verify the installation - AWS Copilot CLI](https://aws.github.io/copilot-cli/docs/getting-started/verify/)
     
     ```bash
     $ copilot version
