@@ -1,46 +1,33 @@
 package main
 
 import (
-	"context"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"net/http"
 	"net/url"
-
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/service/ssm"
+	"os"
 )
 
 const (
-	ssmParamNameOfWebhook string = "/dev/slack-webhook"
-	iconEmoji             string = ":mega:"
-	userName              string = "Hello ECS Job"
+	iconEmoji string = ":mega:"
+	userName  string = "Hello ECS Job"
+	channel   string = "dev"
 )
 
 type payload struct {
 	Text      string `json:"text"`
 	IconEmoji string `json:"icon_emoji"`
 	UserName  string `json:"username"`
+	Channel   string `json:"channel"`
 }
 
 func getWebhookURL() (string, error) {
-	config, err := config.LoadDefaultConfig(context.TODO())
-	if err != nil {
-		return "", err
+	webhookURL := os.Getenv("SLACK_WEBHOOK_URL")
+	if webhookURL == "" {
+		return "", errors.New("The environment value SLACK_WEBHOOK_URL is required.")
 	}
-
-	client := ssm.NewFromConfig(config)
-	out, err := client.GetParameter(context.TODO(), &ssm.GetParameterInput{
-		Name: aws.String(ssmParamNameOfWebhook),
-	})
-
-	if err != nil {
-		return "", err
-	}
-
-	webhookURL := aws.ToString(out.Parameter.Value)
 	return webhookURL, nil
 }
 
@@ -49,6 +36,7 @@ func postToSlack(message, webhookURL string) error {
 		Text:      message,
 		IconEmoji: iconEmoji,
 		UserName:  userName,
+		Channel:   channel,
 	})
 	if err != nil {
 		return err
