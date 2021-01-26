@@ -26,7 +26,12 @@ This repository is a collection of samples of applications running on ECS that p
 
 ## Sample Apps
 
+### [list-s3-buckets](https://github.com/michimani/hello-ecs/tree/master/list-s3-buckets)  
+
+A Load Balanced Web Service that returns list of S3 Bucket name in your AWS account.
+
+
 ### [message-to-slack](https://github.com/michimani/hello-ecs/tree/master/message-to-slack)  
 
-Deploy a scheduled task that posts a message to Slack.
+A scheduled task that posts a message to Slack.
 
