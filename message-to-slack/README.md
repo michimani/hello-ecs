@@ -16,7 +16,7 @@ A scheduled task that posts a message to Slack.
 2. Create Copilot environment
 
     ```bash
-    $ copilot job deploy --name message-to-slack-job --env test
+    $ copilot env init --name test --profile default --default-config
     ```
 
 3. Put Slack Webhook URL to SSM Parameter Store
