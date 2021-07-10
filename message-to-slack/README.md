@@ -13,7 +13,7 @@ A scheduled task that posts a message to Slack.
     && cd hello-ecs/message-to-slack
     ```
 
-1. Create Copilot app
+1. Initialize Copilot application
 
     ```bash
     copilot app init
