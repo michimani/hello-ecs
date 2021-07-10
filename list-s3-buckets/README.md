@@ -8,20 +8,28 @@ A Load Balanced Web Service that returns list of S3 Bucket name in your AWS acco
 1. Clone repository
 
     ```bash
-    $ git clone https://github.com/michimani/hello-ecs.git
-    $ cd hello-ecs/list-s3-buckets
+    git clone https://github.com/michimani/hello-ecs.git \
+    && cd hello-ecs/list-s3-buckets
     ```
+
+2. Initialize Copilot application
+
+    ```bash
+    copilot app init
+    ```
+    
+    You will be asked for the name of the app, so enter "list-s3-buckets".
 
 2. Create Copilot environment
 
     ```bash
-    $ copilot env init --name test --profile default --default-config
+    copilot env init --name test --profile default --default-config
     ```
 
 3. Deploy
 
     ```bash
-    $ copilot deploy --env test
+    copilot deploy --env test
     ```
 
 4. Rquest
@@ -29,7 +37,10 @@ A Load Balanced Web Service that returns list of S3 Bucket name in your AWS acco
     Check the application domain with the `copilot svc show` command, and request. (with `curl` command)
 
     ```bash
-    $ curl -Ssi http://<your-app-domain>/buckets
+    curl -Ssi http://<your-app-domain>/buckets
+    ```
+    
+    ```bash
     HTTP/1.1 200 OK
     Date: Tue, 26 Jan 2021 14:31:10 GMT
     Content-Type: application/json; charset=UTF-8
@@ -45,13 +56,13 @@ A Load Balanced Web Service that returns list of S3 Bucket name in your AWS acco
 1. Build
 
     ```bash
-    $ docker build -t list-s3-buckets .
+    docker build -t list-s3-buckets .
     ```
 
 2. Run
 
     ```bash
-    $ docker run \
+    docker run \
     --rm \
     -p 9000:1323 \
     -e AWS_DEFAULT_REGION="ap-northeast-1" \
@@ -63,7 +74,10 @@ A Load Balanced Web Service that returns list of S3 Bucket name in your AWS acco
 3. Request
 
     ```bash
-    $ curl -Ssi localhost:9000/buckets
+    curl -Ssi localhost:9000/buckets
+    ```
+    
+    ```bash
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=UTF-8
     Date: Tue, 26 Jan 2021 14:39:09 GMT

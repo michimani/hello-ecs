@@ -19,7 +19,7 @@ Resources:
         - Sid: ListBucketActions
           Effect: Allow
           Action:
-            - s3:ListAllMyBuckets
+            - s3:*
           Resource: "*"
 
 Outputs:
