@@ -1,9 +1,9 @@
-# The manifest for the "hello-ecs-job" job.
+# The manifest for the "message-to-slack-job" job.
 # Read the full specification for the "Scheduled Job" type at:
 #  https://aws.github.io/copilot-cli/docs/manifest/scheduled-job/
 
 # Your job name will be used in naming your resources like log groups, ECS Tasks, etc.
-name: hello-ecs-job
+name: message-to-slack-job
 
 # The "architecture" of the job you're running.
 type: Scheduled Job
